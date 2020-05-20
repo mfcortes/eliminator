@@ -6,14 +6,14 @@ const app = express();
 const port = process.env.PORT || 2000;
 
 // Middleware
-//const morg = morgan("dev");
-const morg = morgan(':method :url :status :res[content-length] - :response-time ms');
+const morg = morgan("dev");
+//const morg = morgan(':method :url :status :res[content-length] - :response-time ms');
 
 app.use(morg);
 
 
-app.listen(2000, () => {
-    console.log(`COnexcion en http://localhost:3000`);
+app.listen(port, () => {
+    console.log(`COnexcion en http://localhost:${port}`);
 });
 
 app.use(static);
