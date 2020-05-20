@@ -1,0 +1,69 @@
+.titulo {
+  grid-area: ti;
+  background-color: coral;
+  text-align: center;
+}
+
+.div-numeros-rnd {
+  grid-area: uno;
+  background-color: aquamarine;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: large;
+}
+
+.div-controler-dispara {
+  grid-area: dos;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.div-controler-bala {
+  grid-area: tres;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.div-controler-mas {
+  grid-area: cuatro;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.div-msj-level {
+  grid-area: cinco;
+  background-color: coral;
+  font-size: large;
+  text-align: center;
+}
+
+.div-level {
+  grid-area: seis;
+  background-color: coral;
+  text-align: center;
+}
+
+.div-msj-puntaje {
+  grid-area: siete;
+  background-color: coral;
+  font-size: large;
+  text-align: center;
+}
+
+.div-puntaje {
+  grid-area: ocho;
+  background-color: coral;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
+  grid-template-areas:
+    "ti ti ti"
+    "uno uno uno"
+    "dos tres cuatro"
+    "cinco cinco seis"
+    "siete siete ocho";
+}
