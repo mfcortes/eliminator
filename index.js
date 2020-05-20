@@ -1,15 +1,15 @@
-const morgan = require("morgan");
+//const morgan = require("morgan");
 const express = require("express");
 const static = express.static("public");
 
 const app = express();
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 3000;
 
 // Middleware
-const morg = morgan("dev");
+//const morg = morgan("dev");
 //const morg = morgan(':method :url :status :res[content-length] - :response-time ms');
 
-app.use(morg);
+//app.use(morg);
 
 
 app.listen(port, () => {
