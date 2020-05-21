@@ -1,12 +1,17 @@
+body {
+  background-image: url('./bg_top_img.jpg');
+}
+
 .titulo {
   grid-area: ti;
-  background-color: rgba(80, 190, 53, 0.726);
+  color: rgba(221, 139, 17, 0.575);
   text-align: center;
 }
 
 .deltatime {
   grid-area: dt;
-  background-color: rgba(80, 190, 53, 0.726);
+
+  color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
 }
@@ -22,7 +27,7 @@
 
 .div-premio {
   grid-area: pr;
-  background-color: rgba(80, 190, 53, 0.726);
+  color: rgb(236, 206, 165);
   text-align: center;
 }
 
@@ -50,28 +55,28 @@
 
 .div-msj-level {
   grid-area: cinco;
-  background-color: rgba(80, 190, 53, 0.726);
+  color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
 }
 
 .div-level {
   grid-area: seis;
-  background-color: rgba(80, 190, 53, 0.726);
+  color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
 }
 
 .div-msj-puntaje {
   grid-area: siete;
-  background-color: rgba(80, 190, 53, 0.726);
+  color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
 }
 
 .div-puntaje {
   grid-area: ocho;
-  background-color: rgba(80, 190, 53, 0.726);
+  color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
 }
@@ -96,6 +101,7 @@
 
 @media all and (max-width: 1000px) {
   .grid {
+    background-image: url('./bg_top_img.jpg');
     display: grid;
     margin: 0px;
     height: 90%;
