@@ -62,7 +62,6 @@ clsNumeros.prototype.analizaNivel = function () {
 	if (this.puntaje % 5 == 0) {
 		this.nivel++;
 		this.decreTime(20);
-		$("#valorespera").replaceWith('<b id="valorespera">' + ObjJuego.deltaTiempo + '</b>');
 	}
 
 }

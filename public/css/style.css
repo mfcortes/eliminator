@@ -8,29 +8,13 @@ body {
   text-align: center;
 }
 
-.deltatime {
-  grid-area: dt;
-
-  color: rgb(236, 206, 165);
-  font-size: xx-large;
-  text-align: center;
-}
-
-
 .div-numeros-rnd {
   grid-area: uno;
   text-align: center;
   background-color: rgb(152, 209, 231);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 50px;
+  font-size: 40px;
 }
-
-.div-premio {
-  grid-area: pr;
-  color: rgb(236, 206, 165);
-  text-align: center;
-}
-
 
 .div-controler-dispara {
   grid-area: dos;
@@ -53,29 +37,18 @@ body {
   text-align: center;
 }
 
-.div-msj-level {
-  grid-area: cinco;
-  color: rgb(236, 206, 165);
-  font-size: xx-large;
-  text-align: center;
-}
+
 
 .div-level {
-  grid-area: seis;
+  grid-area: lvl;
   color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
 }
 
-.div-msj-puntaje {
-  grid-area: siete;
-  color: rgb(236, 206, 165);
-  font-size: xx-large;
-  text-align: center;
-}
 
 .div-puntaje {
-  grid-area: ocho;
+  grid-area: puntos;
   color: rgb(236, 206, 165);
   font-size: xx-large;
   text-align: center;
@@ -93,9 +66,7 @@ body {
   grid-gap: 1px;
   grid-template-areas:
     ". ti ti ti ."
-    ". cinco cinco seis ."
-    ". siete siete ocho ."
-    ". dt uno pr ."
+    ". lvl uno puntos ."
     ". dos tres cuatro .";
 }
 
@@ -111,9 +82,7 @@ body {
     grid-gap: 1px;
     grid-template-areas:
       "ti ti ti"
-      "cinco cinco seis"
-      "siete siete ocho"
-      "dt uno pr"
+      "lvl uno puntos"
       "dos tres cuatro";
 
   }
