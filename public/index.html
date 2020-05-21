@@ -8,36 +8,39 @@
 
 	<link rel="stylesheet" href="./css/style.css">
 	<meta name="viewport" content="user-scalable=no">
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Frijole&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Frijole&display=swap"
+		rel="stylesheet">
 
 
 </head>
 
 <body onLoad='numGenera()' onkeypress="presionaTecla(event)">
 
-<br>
-<br>
-	
+	<br>
+	<br>
+
 	<div class="grid">
 		<div class="titulo">
 			<h5>DOG ELIMINATOR</h5>
 		</div>
 
 		<div class="div-level">
-			<h3>Nivel</h3>
-			<h2 id="muestraNivel"></h2>
+			<h3>Fallos</h3>
+			<h3 id="muestraFallos"></h3>
 		</div>
 
 		<div class="div-numeros-rnd">
+			<h3>Nivel</h3>
+			<h3 id="muestraNivel"></h3>
 			<b id="aquiVaTexto"></b>
 		</div>
-		
+
 
 		<div class="div-puntaje">
 			<h3> Puntaje </h3>
 			<h3 id="Puntaje">0</h3>
 		</div>
-		
+
 		<div class="div-controler-dispara" onclick="dispara()"">
 				<b> Dispara </b>
 				<br>
@@ -49,7 +52,7 @@
 						class="material-icons">filter_center_focus</i></a> -->
 		</div>
 		<div class="div-controler-bala">
-			<h3 id="Bala">0</h3>
+			<img id="Bala" src="./asset/nf0.jpg">
 		</div>
 		<div class="div-controler-mas" onclick="subeEbUno()">
 			<b> Incrementa </b>

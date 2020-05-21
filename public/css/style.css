@@ -2,6 +2,11 @@ body {
   background-image: url('../asset/bg_top_img.jpg');
 }
 
+img {
+  width: 200px;
+  height: 250px;
+}
+
 .titulo {
   grid-area: ti;
   font-family: 'Frijole', cursive;
@@ -20,6 +25,7 @@ body {
 
 .div-controler-dispara {
   grid-area: dos;
+  color: rgb(236, 206, 165);
   background-color: rgb(21, 68, 52);
   font-size: xx-large;
   text-align: center;
@@ -27,14 +33,15 @@ body {
 
 .div-controler-bala {
   grid-area: tres;
-  background-color: rgb(152, 209, 231);
+  background-color: rgb(87, 211, 244);
   font-family: 'Frijole', cursive;
-  font-size: 100px;
+  font-size: 120px;
   text-align: center;
 }
 
 .div-controler-mas {
   grid-area: cuatro;
+  color: rgb(236, 206, 165);
   background-color: rgb(85, 24, 24);
   font-size: xx-large;
   text-align: center;
@@ -59,7 +66,7 @@ body {
 .grid {
   display: grid;
   height: 90%;
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -73,11 +80,10 @@ body {
 
 @media all and (max-width: 1000px) {
   .grid {
-    background-image: url('./bg_top_img.jpg');
     display: grid;
     margin: 0px;
     height: 90%;
-    width: 100%;
+    width: 90%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1px;

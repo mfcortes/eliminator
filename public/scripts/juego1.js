@@ -16,8 +16,8 @@ class clsNumeros {
 		this.numeroRnd = 0;
 		this.disparador = 0;
 		this.maxNumeros = 10;
-		this.snd_dispara = new Audio('./asset/disparar_final.wav');
-		this.snd_inc = new Audio('./asset/incrementa_final.wav');
+		this.snd_dispara = new Audio('./asset/disparar_final.mp3');
+		this.snd_inc = new Audio('./asset/incrementar_final.mp3');
 	}
 
 	genRnd() {
@@ -57,7 +57,10 @@ class clsNumeros {
 		this.largoString = mensaje.length;
 
 		$('#aquiVaTexto').replaceWith('<p id="aquiVaTexto">' + mensaje + '</p>');
-		$('#muestraNivel').replaceWith('<h2 id="muestraNivel">' + this.nivel + '</h2>');
+		$('#muestraNivel').replaceWith('<h3 id="muestraNivel">' + this.nivel + '</h3>');
+		$('#Puntaje').replaceWith('<h3 id="Puntaje">' + this.puntaje + '</h3>');
+		$('#muestraFallos').replaceWith('<h3 id="muestraFallos">' + this.error + '</h3>');
+
 	}
 
 	analizaNivel() {
@@ -73,6 +76,10 @@ class clsNumeros {
 				delete this.arreglo[i];
 				this.puntaje++;
 				break;
+			}
+
+			if (i == this.arreglo.length - 1) {
+				this.error++;
 			}
 		}
 	}
@@ -93,7 +100,7 @@ class clsNumeros {
 
 var ObjJuego = new clsNumeros();
 
-function colocaNumero() {
+function colocaNumero(myInterval) {
 	if (ObjJuego.statusContinue == 1) {
 		ObjJuego.genRnd();
 		ObjJuego.addNumeros();
@@ -104,6 +111,7 @@ function colocaNumero() {
 			const mensajeFin = `GAME OVER \nPuntaje : ${ObjJuego.puntaje} \nLevel : ${ObjJuego.nivel} \nDelta Tiempo : ${ObjJuego.deltaTiempo} `;
 			alert(mensajeFin);
 			ObjJuego.statusContinue = 0;
+			clearInterval(myInterval);
 			return;
 		}
 
@@ -133,27 +141,41 @@ function presionaTecla(valor) {
 
 function subeEbUno() {
 
-	if (this.statusContinue == 0) return;
+	if (ObjJuego.statusContinue == 0) return;
 	ObjJuego.incrementaDisparador();
 	ObjJuego.snd_inc.play();
 
 
 	// Mostramos BALA
-	$('#Bala').replaceWith('<h3 id="Bala">' + ObjJuego.disparador + '</h3>');
+	//$('#Bala').replaceWith('<h3 id="Bala">' + ObjJuego.disparador + '</h3>');
+	let strTemp = '<img id="Bala" src="./asset/nf' + ObjJuego.disparador + '.jpg">';
+	//console.log(ObjJuego.disparador);
+	$('#Bala').replaceWith(strTemp);
 
 }
 
 function dispara() {
-	if (this.statusContinue == 0) return;
-
+	if (ObjJuego.statusContinue == 0) return;
 
 	// oOstramos puntaje
-	$('#Puntaje').replaceWith('<h3 id="Puntaje">' + ObjJuego.puntaje + '</h3>');
+
 	ObjJuego.sacaNumero();
 
 	ObjJuego.analizaNivel();
 }
 
 function numGenera() {
-	generaNumeros(15000);
+	//generaNumeros(15000);
+	const elemIneterval = setInterval(function () {
+		colocaNumero(elemIneterval);
+
+		/*
+		if (ObjJuego.statusContinue == 1) {
+			console.log(ObjJuego.deltaTiempo);
+		} else {
+			console.log('Fin del juego');
+		}
+		*/
+
+	}, ObjJuego.deltaTiempo);
 }
