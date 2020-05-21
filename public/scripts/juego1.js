@@ -2,12 +2,14 @@ String.prototype.trim = function () {
 	return this.replace(/^\s+|\s+$/g, "");
 }
 
-function clsNumeros(pasoTiempo, pasoPuntaje, semilla, balaInicial, numerossTope) {
+function clsNumeros(pasoPuntaje, semilla, balaInicial, numerossTope) {
+	this.MINTIEMPO = 300;
+	this.MAXTTIEMPO = 1200;
 	this.statusContinue = 1;
 	this.nivel = 1;
 	this.largoString = 0;
 	this.arreglo = new Array();
-	this.deltaTiempo = pasoTiempo;
+	this.deltaTiempo = this.MAXTTIEMPO;
 	this.puntaje = pasoPuntaje;
 	this.numeroRnd = semilla;
 	this.disparador = balaInicial;
@@ -32,7 +34,16 @@ clsNumeros.prototype.increTime = function (dTiempo) {
 }
 
 clsNumeros.prototype.decreTime = function (dTiempo) {
-	this.deltaTiempo -= dTiempo;
+	if (this.deltaTiempo > this.MINTIEMPO) {
+		this.deltaTiempo -= dTiempo;
+	} else {
+		if (this.deltaTiempo > 10) {
+			this.deltaTiempo -= 2;
+		} else {
+			this.deltaTiempo = this.MAXTTIEMPO;
+		}
+	}
+
 }
 
 clsNumeros.prototype.muestraArr = function () {
@@ -48,8 +59,10 @@ clsNumeros.prototype.muestraArr = function () {
 }
 
 clsNumeros.prototype.analizaNivel = function () {
-	if (this.puntaje % 10 == 0) {
+	if (this.puntaje % 5 == 0) {
 		this.nivel++;
+		this.decreTime(20);
+		$("#valorespera").replaceWith('<b id="valorespera">' + ObjJuego.deltaTiempo + '</b>');
 	}
 
 }
@@ -86,14 +99,14 @@ clsNumeros.prototype.muestraPuntaje = function () {
 
 clsNumeros.prototype.elJuegoTermino = function () {
 	if (this.largoString >= this.maxNumeros) {
-		var mensajeFin = "Perdiste :-( ";
-		$('#mensaje').replaceWith('<h4 id="mensaje">' + mensajeFin + '</h4>');
+		var mensajeFin = `GAME OVER \nPuntaje : ${this.puntaje} \nLevel : ${this.nivel} \nDelta Tiempo : ${this.deltaTiempo} `;
+		alert(mensajeFin);
 		this.statusContinue = 0;
 		return;
 	}
 }
 
-var ObjJuego = new clsNumeros(1500, 0, 0, 0, 10);
+var ObjJuego = new clsNumeros(0, 0, 0, 10);
 
 function colocaNumero() {
 	if (ObjJuego.statusContinue == 1) {
@@ -113,6 +126,7 @@ function generaNumeros(cantidad) {
 	var i = 0;
 	for (var i = 0; i < cantidad; i++) {
 		setTimeout('colocaNumero()', ObjJuego.deltaTiempo * i)
+
 	}
 }
 
@@ -140,5 +154,5 @@ function dispara() {
 
 
 function numGenera() {
-	generaNumeros(5000);
+	generaNumeros(15000);
 }

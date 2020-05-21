@@ -15,23 +15,40 @@
 
 	<div class="grid">
 		<div class="titulo">
-			<h5>ELIMINATOR</h5>
+			<h5>DOG ELIMINATOR</h5>
 		</div>
-
+		<div class="deltatime">
+			<b>Delta TImepo msg</b>
+			<br>
+			<b id="valorespera"></b>
+		</div>
 		<div class="div-numeros-rnd">
 			<b id="aquiVaTexto"></b>
 		</div>
-		<div class="div-controler-dispara">
+		<div class="div-premio">
+			<b>Premio</b>
+		</div>
+		<div class="div-controler-dispara" onclick="dispara()"">
+				<b> Dispara </b>
+				<br>
+				(Cualquier tecla)
+				<br>
+				<i class=" material-icons">filter_center_focus</i>
 
-			<a class="btn-floating btn-large waves-effect waves-light red" onclick="dispara()"><i
-					class="material-icons">filter_center_focus</i></a>
+			<!--<a class="waves-effect waves-light btn-large red " onclick="dispara()"><i
+						class="material-icons">filter_center_focus</i></a> -->
 		</div>
 		<div class="div-controler-bala">
 			<h3 id="Bala">0</h3>
 		</div>
-		<div class="div-controler-mas">
-			<a class="btn-floating btn-large waves-effect waves-light red" onclick="subeEbUno()"><i
-					class="material-icons">add</i></a>
+		<div class="div-controler-mas" onclick="subeEbUno()">
+			<b> Incrementa </b>
+			<br>
+			(Tecla +)
+			<br>
+			<i class="material-icons">add</i>
+			<!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="subeEbUno()"><i
+						class="material-icons">add</i></a>-->
 		</div>
 
 		<div class="div-msj-level">
@@ -50,9 +67,6 @@
 		</div>
 
 	</div>
-
-
-
 
 	<script src="./scripts/juego1.js" type="text/javascript"></script>
 	<!-- Compiled and minified JavaSncript -->

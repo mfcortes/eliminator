@@ -1,74 +1,108 @@
 .titulo {
   grid-area: ti;
-  background-color: coral;
+  background-color: rgba(80, 190, 53, 0.726);
   text-align: center;
 }
 
+.deltatime {
+  grid-area: dt;
+  background-color: rgba(80, 190, 53, 0.726);
+  text-align: center;
+}
+
+
 .div-numeros-rnd {
   grid-area: uno;
-  background-color: aquamarine;
+  text-align: center;
+  background-color: rgb(152, 209, 231);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 40px;
+  font-size: 50px;
+}
+
+.div-premio {
+  grid-area: pr;
+  background-color: rgba(80, 190, 53, 0.726);
+  text-align: center;
 }
 
 
 .div-controler-dispara {
   grid-area: dos;
-  background-color: aquamarine;
+  background-color: rgb(21, 68, 52);
   text-align: center;
 }
 
 .div-controler-bala {
   grid-area: tres;
-  background-color: aquamarine;
+  background-color: rgb(152, 209, 231);
   text-align: center;
 }
 
 .div-controler-mas {
   grid-area: cuatro;
-  background-color: aquamarine;
+  background-color: rgb(85, 24, 24);
   text-align: center;
 }
 
 .div-msj-level {
   grid-area: cinco;
-  background-color: coral;
+  background-color: rgba(80, 190, 53, 0.726);
   font-size: large;
   text-align: center;
 }
 
 .div-level {
   grid-area: seis;
-  background-color: coral;
+  background-color: rgba(80, 190, 53, 0.726);
   text-align: center;
 }
 
 .div-msj-puntaje {
   grid-area: siete;
-  background-color: coral;
+  background-color: rgba(80, 190, 53, 0.726);
   font-size: large;
   text-align: center;
 }
 
 .div-puntaje {
   grid-area: ocho;
-  background-color: coral;
+  background-color: rgba(80, 190, 53, 0.726);
   text-align: center;
 }
 
 .grid {
-  margin: 0px;
   height: 100%;
   width: 100%;
+  padding: 10px;
+  margin: 10px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
   grid-template-areas:
-    "ti ti ti"
-    "uno uno uno"
-    "dos tres cuatro"
-    "cinco cinco seis"
-    "siete siete ocho";
+    ". ti ti ti ."
+    ". dt uno pr ."
+    ". dos tres cuatro ."
+    ". cinco cinco seis ."
+    ". siete siete ocho .";
+}
+
+@media (max-width: 400px) {
+  .grid {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1px;
+    grid-template-areas:
+      "ti ti ti"
+      "dt uno pr"
+      "dos tres cuatro"
+      "cinco cinco seis"
+      "siete siete ocho";
+  }
 }
