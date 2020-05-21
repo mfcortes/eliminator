@@ -70,13 +70,13 @@
   text-align: center;
 }
 
+
 .grid {
+  display: grid;
   height: 100%;
   width: 100%;
   padding: 10px;
   margin: 10px;
-
-  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
@@ -88,13 +88,12 @@
     ". siete siete ocho .";
 }
 
-@media (max-width: 400px) {
+@media all and (max-width: 800px) {
   .grid {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-
     display: grid;
+    margin: 0px;
+    height: 50%;
+    width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
