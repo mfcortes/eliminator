@@ -74,7 +74,7 @@
 .grid {
   display: grid;
   height: 100%;
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -88,12 +88,12 @@
     ". siete siete ocho .";
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 1000px) {
   .grid {
     display: grid;
     margin: 0px;
     height: 50%;
-    width: 100%;
+    width: 90%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
