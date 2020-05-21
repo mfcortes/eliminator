@@ -4,6 +4,8 @@ body {
 
 .titulo {
   grid-area: ti;
+  font-family: 'Frijole', cursive;
+  font-size: 50px;
   color: rgba(221, 139, 17, 0.575);
   text-align: center;
 }
@@ -11,9 +13,9 @@ body {
 .div-numeros-rnd {
   grid-area: uno;
   text-align: center;
+  font-family: 'Frijole', cursive;
+  font-size: 30px;
   background-color: rgb(152, 209, 231);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 40px;
 }
 
 .div-controler-dispara {
@@ -26,6 +28,7 @@ body {
 .div-controler-bala {
   grid-area: tres;
   background-color: rgb(152, 209, 231);
+  font-family: 'Frijole', cursive;
   font-size: 100px;
   text-align: center;
 }
@@ -36,8 +39,6 @@ body {
   font-size: xx-large;
   text-align: center;
 }
-
-
 
 .div-level {
   grid-area: lvl;
@@ -62,7 +63,7 @@ body {
   padding: 10px;
   margin: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 1px;
   grid-template-areas:
     ". ti ti ti ."
@@ -78,7 +79,7 @@ body {
     height: 90%;
     width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1px;
     grid-template-areas:
       "ti ti ti"
