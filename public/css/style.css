@@ -93,10 +93,10 @@ body {
   grid-gap: 1px;
   grid-template-areas:
     ". ti ti ti ."
-    ". dt uno pr ."
-    ". dos tres cuatro ."
     ". cinco cinco seis ."
-    ". siete siete ocho .";
+    ". siete siete ocho ."
+    ". dt uno pr ."
+    ". dos tres cuatro .";
 }
 
 @media all and (max-width: 1000px) {
@@ -111,9 +111,10 @@ body {
     grid-gap: 1px;
     grid-template-areas:
       "ti ti ti"
-      "dt uno pr"
-      "dos tres cuatro"
       "cinco cinco seis"
-      "siete siete ocho";
+      "siete siete ocho"
+      "dt uno pr"
+      "dos tres cuatro";
+
   }
 }
