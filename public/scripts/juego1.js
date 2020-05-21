@@ -140,5 +140,5 @@ function dispara() {
 
 
 function numGenera() {
-	Concurrent.Thread.create(generaNumeros, 1000);
+	generaNumeros(5000);
 }
