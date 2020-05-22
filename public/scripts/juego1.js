@@ -6,18 +6,25 @@ class clsNumeros {
 	constructor() {
 		this.MINTIEMPO = 300;
 		this.MAXTTIEMPO = 1200;
+		this.ADDPUNTOS = 2;
+		this.MINUSPUNTOS = 1;
+		this.PASONIVEL = 5;
+		this.PREMIO = 5;
+		this.aciertos = 0;
 		this.statusContinue = 1;
 		this.nivel = 1;
 		this.largoString = 0;
 		this.error = 0;
+		this.premio = 0;
 		this.arreglo = new Array();
 		this.deltaTiempo = this.MAXTTIEMPO;
 		this.puntaje = 0;
 		this.numeroRnd = 0;
 		this.disparador = 0;
 		this.maxNumeros = 10;
-		this.snd_dispara = new Audio('./asset/disparar_final.mp3');
+		this.snd_dispara = new Audio('./asset/disparar_final.wav');
 		this.snd_inc = new Audio('./asset/incrementar_final.mp3');
+		this.snd_premio = new Audio('./asset/premio.mp3');
 	}
 
 	genRnd() {
@@ -30,8 +37,26 @@ class clsNumeros {
 	}
 
 	addPuntaje() {
-		this.puntaje += addPuntos;
+		this.puntaje += this.ADDPUNTOS;
+		this.aciertos++;
 	}
+
+	restaPuntaje() {
+		this.puntaje += this.MINUSPUNTOS;
+	}
+
+	subeNivel() {
+		this.nivel++;
+		if (this.nivel % 5 == 0 && this.error <= 3 && this.premio <= 3) {
+			this.premio++;
+			let idT = `p${this.premio}`;
+			let strTemp = `<img id="${idT}" src="./asset/p${this.premio}.jpg">`;
+			let strAtributo = "./asset/p" + this.premio + ".jpg";
+			document.getElementById(idT).setAttribute("src", strAtributo);
+			this.snd_premio.play();
+		}
+	}
+
 
 	increTime() {
 		this.deltaTiempo += dTiempo;
@@ -64,8 +89,8 @@ class clsNumeros {
 	}
 
 	analizaNivel() {
-		if (this.puntaje % 5 == 0) {
-			this.nivel++;
+		if (this.aciertos % 5 == 0) {
+			this.subeNivel();
 			this.decreTime(20);
 		}
 	}
@@ -74,12 +99,13 @@ class clsNumeros {
 		for (var i = 0; i < this.arreglo.length; i++) {
 			if (this.arreglo[i] == this.disparador) {
 				delete this.arreglo[i];
-				this.puntaje++;
+				this.addPuntaje();
 				break;
 			}
 
 			if (i == this.arreglo.length - 1) {
 				this.error++;
+				this.restaPuntaje();
 			}
 		}
 	}
@@ -93,9 +119,6 @@ class clsNumeros {
 		}
 	}
 }
-
-
-
 
 
 var ObjJuego = new clsNumeros();
@@ -144,10 +167,6 @@ function subeEbUno() {
 	if (ObjJuego.statusContinue == 0) return;
 	ObjJuego.incrementaDisparador();
 	ObjJuego.snd_inc.play();
-
-
-	// Mostramos BALA
-	//$('#Bala').replaceWith('<h3 id="Bala">' + ObjJuego.disparador + '</h3>');
 	let strTemp = '<img id="Bala" src="./asset/nf' + ObjJuego.disparador + '.jpg">';
 	//console.log(ObjJuego.disparador);
 	$('#Bala').replaceWith(strTemp);
@@ -157,10 +176,7 @@ function subeEbUno() {
 function dispara() {
 	if (ObjJuego.statusContinue == 0) return;
 
-	// oOstramos puntaje
-
 	ObjJuego.sacaNumero();
-
 	ObjJuego.analizaNivel();
 }
 

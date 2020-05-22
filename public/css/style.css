@@ -3,8 +3,8 @@ body {
 }
 
 img {
-  width: 200px;
-  height: 250px;
+  width: 180px;
+  height: 200px;
 }
 
 .titulo {
@@ -62,6 +62,23 @@ img {
   text-align: center;
 }
 
+.premio1 {
+  grid-area: p1;
+  justify-content: center;
+}
+
+.premio2 {
+  grid-area: p2;
+  align-items: center;
+  align-content: center;
+}
+
+.premio3 {
+  grid-area: p3;
+  align-items: center;
+  align-content: center;
+}
+
 
 .grid {
   display: grid;
@@ -70,10 +87,11 @@ img {
   padding: 10px;
   margin: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
   grid-template-areas:
     ". ti ti ti ."
+    ". p1 p2 p3 ."
     ". lvl uno puntos ."
     ". dos tres cuatro .";
 }
@@ -85,12 +103,14 @@ img {
     height: 90%;
     width: 90%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
     grid-template-areas:
       "ti ti ti"
+      "p1 p2 p3"
       "lvl uno puntos"
       "dos tres cuatro";
 
+    º
   }
 }
