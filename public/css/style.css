@@ -3,8 +3,10 @@ body {
 }
 
 img {
-  width: 180px;
-  height: 200px;
+  width: 110x;
+  height: 120px;
+  display: block;
+  margin: auto;
 }
 
 .titulo {
