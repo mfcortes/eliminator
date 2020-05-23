@@ -1,7 +1,3 @@
-String.prototype.trim = function () {
-	return this.replace(/^\s+|\s+$/g, "");
-}
-
 class clsNumeros {
 	constructor() {
 		this.MINTIEMPO = 300;
@@ -21,10 +17,14 @@ class clsNumeros {
 		this.puntaje = 0;
 		this.numeroRnd = 0;
 		this.disparador = 0;
-		this.maxNumeros = 10;
-		this.snd_dispara = new Audio('./asset/disparar_final.wav');
+		this.maxNumeros = 7;
+		this.snd_dispara = new Audio('./asset/disparo_final.mp3');
 		this.snd_inc = new Audio('./asset/incrementar_final.mp3');
 		this.snd_premio = new Audio('./asset/premio.mp3');
+	}
+
+	trim = function () {
+		return this.replace(/^\s+|\s+$/g, "");
 	}
 
 	genRnd() {
@@ -69,6 +69,7 @@ class clsNumeros {
 			if (this.deltaTiempo > 10) {
 				this.deltaTiempo -= 2;
 			} else {
+				// El juego lo diste vuelta
 				this.deltaTiempo = this.MAXTTIEMPO;
 			}
 		}
@@ -81,10 +82,10 @@ class clsNumeros {
 
 		this.largoString = mensaje.length;
 
-		$('#aquiVaTexto').replaceWith('<p id="aquiVaTexto">' + mensaje + '</p>');
-		$('#muestraNivel').replaceWith('<h3 id="muestraNivel">' + this.nivel + '</h3>');
-		$('#Puntaje').replaceWith('<h3 id="Puntaje">' + this.puntaje + '</h3>');
-		$('#muestraFallos').replaceWith('<h3 id="muestraFallos">' + this.error + '</h3>');
+		document.getElementById('aquiVaTexto').innerHTML = mensaje;
+		document.getElementById('muestraNivel').innerHTML = this.nivel;
+		document.getElementById('Puntaje').innerHTML = this.puntaje;
+		document.getElementById('muestraFallos').innerHTML = this.error;
 
 	}
 
@@ -130,7 +131,7 @@ function colocaNumero(myInterval) {
 		ObjJuego.muestraArr();
 
 		// Se analiza si GAME OVER
-		if (ObjJuego.largoString >= ObjJuego.maxNumeros) {
+		if (ObjJuego.largoString > ObjJuego.maxNumeros) {
 			const mensajeFin = `GAME OVER \nPuntaje : ${ObjJuego.puntaje} \nLevel : ${ObjJuego.nivel} \nDelta Tiempo : ${ObjJuego.deltaTiempo} `;
 			alert(mensajeFin);
 			ObjJuego.statusContinue = 0;
@@ -167,9 +168,11 @@ function subeEbUno() {
 	if (ObjJuego.statusContinue == 0) return;
 	ObjJuego.incrementaDisparador();
 	ObjJuego.snd_inc.play();
-	let strTemp = '<img id="Bala" src="./asset/nf' + ObjJuego.disparador + '.jpg">';
 	//console.log(ObjJuego.disparador);
-	$('#Bala').replaceWith(strTemp);
+	let strTemp = `./asset/nf${ObjJuego.disparador}.jpg`;
+
+	document.getElementById('Bala').setAttribute('src', strTemp);
+
 
 }
 
