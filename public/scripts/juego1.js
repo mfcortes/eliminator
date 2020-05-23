@@ -1,7 +1,7 @@
 class clsNumeros {
 	constructor() {
 		this.MINTIEMPO = 300;
-		this.MAXTTIEMPO = 1200;
+		this.MAXTTIEMPO = 1500;
 		this.ADDPUNTOS = 2;
 		this.MINUSPUNTOS = 1;
 		this.PASONIVEL = 5;
@@ -159,7 +159,6 @@ function presionaTecla(valor) {
 		subeEbUno();
 	} else {
 		dispara();
-		ObjJuego.snd_dispara.play();
 	}
 }
 
@@ -178,7 +177,7 @@ function subeEbUno() {
 
 function dispara() {
 	if (ObjJuego.statusContinue == 0) return;
-
+	ObjJuego.snd_dispara.play();
 	ObjJuego.sacaNumero();
 	ObjJuego.analizaNivel();
 }

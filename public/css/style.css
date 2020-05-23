@@ -104,13 +104,13 @@ img {
     margin: 0px;
     height: 90%;
     width: 90%;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
     grid-template-areas:
-      "ti ti ti"
-      "p1 p2 p3"
-      "lvl uno puntos"
-      "dos tres cuatro";
+      ". ti ti ti ."
+      ". p1 p2 p3 ."
+      ". lvl uno puntos ."
+      ". dos tres cuatro .";
   }
 }
