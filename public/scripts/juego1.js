@@ -51,7 +51,7 @@ class clsNumeros {
 			this.premio++;
 			let idT = `p${this.premio}`;
 			let strTemp = `<img id="${idT}" src="./asset/p${this.premio}.jpg">`;
-			let strAtributo = "./asset/p" + this.premio + ".jpg";
+			let strAtributo = "./asset/pf" + this.premio + ".jpg";
 			document.getElementById(idT).setAttribute("src", strAtributo);
 			this.snd_premio.play();
 		}
